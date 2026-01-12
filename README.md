@@ -1,59 +1,79 @@
-# Synthetic Driver Distraction Augmentor
+# Synthetic Driver Distraction Augmentation
 
-## Overview
-The Synthetic Driver Distraction Augmentor project aims to create a dataset of synthetic images depicting drivers engaged in various distracted actions, such as eating or checking their watch. By leveraging advanced techniques like Stable Diffusion, ControlNet, and CLIP, this project addresses the challenge of obtaining diverse and specific images that are often underrepresented in existing datasets.
+## Project Overview
+The Synthetic Driver Distraction Augmentation project aims to create a synthetic dataset of driver distraction scenarios for research in automotive AI. By generating realistic in-cabin images depicting various distractions (such as eating or using a phone), this project supports the development of advanced activity recognition systems while ensuring privacy and compliance with data protection regulations.
+
+## Key Features
+- **Structural Fidelity**: Utilizes ControlNet with OpenPose to maintain anatomically correct joint positions of drivers, ensuring realistic pose estimation.
+- **Metric-Guided Selection**: Implements a CLIP-based filtering mechanism to validate generated images, ensuring that only relevant distraction data is included in the training set.
+- **Privacy-Safe**: The dataset is generated synthetically, eliminating the need for real human subjects and mitigating data privacy risks.
 
 ## Project Structure
-The project is organized into the following directories and files:
+```
+synthetic-driver-distraction-augmentation
+├── pipeline
+│   ├── __init__.py
+│   ├── generator.py
+│   └── validator.py
+├── main.py
+├── Driver_Augmentation_Colab.ipynb
+├── pyproject.toml
+└── README.md
+```
 
-- **notebooks/**: Contains Jupyter notebooks for Google Colab.
-  - `colab_synthetic_driver_augmentor.ipynb`: The main notebook for implementing the synthetic driver distraction augmentor.
+## Installation
+To set up the project, you will need to install the required dependencies. You can do this by running the following command in your terminal or within a Google Colab notebook:
 
-- **src/**: Contains the source code for the project.
-  - **diffusion/**: Functions for generating synthetic images.
-    - `generate_images.py`: Code for image generation using the Hugging Face diffusers library.
-  - **controlnet/**: Implements control mechanisms for image generation.
-    - `canny_control.py`: Canny edge detection for perspective control.
-    - `pose_control.py`: Pose estimation for driver positioning.
-  - **clip_filter/**: Functions for filtering images based on relevance.
-    - `filter_images.py`: Utilizes CLIP to filter out irrelevant images.
-  - **utils/**: Utility functions for dataset management.
-    - `dataset_utils.py`: Functions for saving, loading, and preprocessing images.
-  - `app.ts`: Main entry point for coordinating the application.
+```bash
+pip install -q diffusers transformers accelerate opencv-python controlnet_aux
+```
 
-- **requirements.txt**: Lists Python dependencies required for the project.
+## Usage
+1. **Generate Synthetic Data**: Use the `SyntheticDriverAugmentor` class from `pipeline/generator.py` to generate images based on distraction prompts.
+2. **Validate Generated Images**: The `validator.py` file contains methods to filter out images that do not meet the quality criteria based on cosine similarity scores.
+3. **Run the Main Script**: Execute `main.py` to orchestrate the generation and validation process for a list of distraction scenarios.
 
-- **package.json**: Configuration file for npm, listing JavaScript dependencies.
+## Evaluation Metrics (Metric-Guided Research)
 
-- **tsconfig.json**: TypeScript configuration file specifying compiler options.
+This project treats synthetic data generation as a **measure → filter → log** loop. Below are practical metrics to quantify quality and make dataset creation reproducible.
 
-## Setup Instructions
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   cd synthetic-driver-distraction-augmentor
-   ```
+### A) Text–Image Alignment (CLIP Cosine Similarity)
+**What it measures:** how well the generated image matches the distraction prompt (e.g., “driver using a phone”).
 
-2. Install Python dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+- **Metric:** cosine similarity between CLIP image and text embeddings
+- **Usage:** reject samples below a threshold (`clip_threshold`)
+- **Report:** per-scenario mean/median similarity, and acceptance rate at the chosen threshold
 
-3. Install JavaScript dependencies:
-   ```
-   npm install
-   ```
+### B) Acceptance Rate (Filtering Efficiency)
+**What it measures:** how often the generator produces valid samples under your constraints.
 
-4. Open the Jupyter notebook in Google Colab:
-   - Upload `colab_synthetic_driver_augmentor.ipynb` to your Google Drive or open it directly in Colab.
+- **Metric:** `accepted / attempted` (tracked per scenario)
+- **Why:** helps tune prompts, negative prompts, inference steps, and thresholds
 
-## Usage Guidelines
-- Use the provided Jupyter notebook to generate synthetic images by specifying the desired distracted actions.
-- The generated images will be filtered and saved using the utility functions provided in the `src/utils/dataset_utils.py` file.
-- Ensure that the necessary libraries are installed and configured correctly to avoid any runtime issues.
+### C) Structural Fidelity Proxy (Pose / Keypoint Coverage)
+**What it measures:** whether the driver anatomy remains plausible and detectable.
 
-## Contributing
-Contributions to enhance the project are welcome. Please submit a pull request or open an issue for any suggestions or improvements.
+- **Metric (suggested):** run a pose detector on the **generated image** and compute:
+  - `coverage = valid_keypoints / total_keypoints`
+- **Usage:** reject samples with low pose coverage (often indicates artifacts / implausible limbs)
+- **Why it matters:** improves downstream robustness for pose-driven activity recognition
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+### D) Diversity Heuristics (Optional)
+**What it measures:** whether the dataset collapses to near-duplicates.
+
+- **Metric (suggested):** embedding-based diversity (e.g., average pairwise distance in CLIP image embedding space per scenario)
+- **Usage:** flag near-duplicates; enforce a minimum diversity threshold when exporting a training set
+
+### Recommended Summary Table (per run)
+At minimum, log:
+- number of attempted samples
+- number of accepted samples
+- acceptance rate (%)
+- CLIP similarity mean/median/std
+- (optional) pose coverage mean/median
+
+## Google Colab
+A ready-to-run Google Colab notebook, `Driver_Augmentation_Colab.ipynb`, is provided to demonstrate the functionality of the project. This notebook includes all necessary setup steps and example usage.
+
+## Conclusion
+This project contributes to the field of automotive AI by providing a synthetic dataset that can be used for training and validating activity recognition models. By focusing on metric-guided research and ensuring privacy, it paves the way for safer and more effective in-cabin monitoring systems.
