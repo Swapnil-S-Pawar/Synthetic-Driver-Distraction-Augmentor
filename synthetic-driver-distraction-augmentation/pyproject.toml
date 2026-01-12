@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "synthetic-driver-distraction-augmentation"
+version = "0.1.0"
+description = "A project for generating synthetic driver distraction scenarios using AI."
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+torch = "^1.9.0"
+diffusers = "^0.3.0"
+transformers = "^4.11.0"
+opencv-python = "^4.5.3"
+controlnet_aux = "^0.1.0"
+accelerate = "^0.5.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,162 @@
+[
+  {
+    "id": "000000",
+    "prompt": "driver eating a sandwich while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.28636395931243896,
+    "image_path": "outputs/000000.png",
+    "pose_path": "outputs/000000_pose.png",
+    "seed": 654666989
+  },
+  {
+    "id": "000001",
+    "prompt": "driver eating a sandwich while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.2852231562137604,
+    "image_path": "outputs/000001.png",
+    "pose_path": "outputs/000001_pose.png",
+    "seed": 1660786198
+  },
+  {
+    "id": "000002",
+    "prompt": "driver eating a sandwich while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.28397393226623535,
+    "image_path": "outputs/000002.png",
+    "pose_path": "outputs/000002_pose.png",
+    "seed": 1996718988
+  },
+  {
+    "id": "000003",
+    "prompt": "driver eating a sandwich while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.30206841230392456,
+    "image_path": "outputs/000003.png",
+    "pose_path": "outputs/000003_pose.png",
+    "seed": 939469625
+  },
+  {
+    "id": "000004",
+    "prompt": "driver eating a sandwich while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.31288647651672363,
+    "image_path": "outputs/000004.png",
+    "pose_path": "outputs/000004_pose.png",
+    "seed": 44460396
+  },
+  {
+    "id": "000005",
+    "prompt": "driver drinking coffee while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.2634550631046295,
+    "image_path": "outputs/000005.png",
+    "pose_path": "outputs/000005_pose.png",
+    "seed": 1776359252
+  },
+  {
+    "id": "000006",
+    "prompt": "driver drinking coffee while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.3039543628692627,
+    "image_path": "outputs/000006.png",
+    "pose_path": "outputs/000006_pose.png",
+    "seed": 1191214234
+  },
+  {
+    "id": "000007",
+    "prompt": "driver drinking coffee while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.25950443744659424,
+    "image_path": "outputs/000007.png",
+    "pose_path": "outputs/000007_pose.png",
+    "seed": 363732180
+  },
+  {
+    "id": "000008",
+    "prompt": "driver drinking coffee while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.339208722114563,
+    "image_path": "outputs/000008.png",
+    "pose_path": "outputs/000008_pose.png",
+    "seed": 1769063081
+  },
+  {
+    "id": "000009",
+    "prompt": "driver drinking coffee while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.2639535665512085,
+    "image_path": "outputs/000009.png",
+    "pose_path": "outputs/000009_pose.png",
+    "seed": 190345830
+  },
+  {
+    "id": "000010",
+    "prompt": "driver using a phone while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.2714504599571228,
+    "image_path": "outputs/000010.png",
+    "pose_path": "outputs/000010_pose.png",
+    "seed": 1728558201
+  },
+  {
+    "id": "000011",
+    "prompt": "driver using a phone while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.2828666567802429,
+    "image_path": "outputs/000011.png",
+    "pose_path": "outputs/000011_pose.png",
+    "seed": 930702376
+  },
+  {
+    "id": "000012",
+    "prompt": "driver using a phone while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.29208290576934814,
+    "image_path": "outputs/000012.png",
+    "pose_path": "outputs/000012_pose.png",
+    "seed": 1815135559
+  },
+  {
+    "id": "000013",
+    "prompt": "driver using a phone while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.25987204909324646,
+    "image_path": "outputs/000013.png",
+    "pose_path": "outputs/000013_pose.png",
+    "seed": 1488882972
+  },
+  {
+    "id": "000014",
+    "prompt": "driver using a phone while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.25394198298454285,
+    "image_path": "outputs/000014.png",
+    "pose_path": "outputs/000014_pose.png",
+    "seed": 1083039307
+  },
+  {
+    "id": "000015",
+    "prompt": "driver adjusting the radio while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.26881107687950134,
+    "image_path": "outputs/000015.png",
+    "pose_path": "outputs/000015_pose.png",
+    "seed": 1833223440
+  },
+  {
+    "id": "000016",
+    "prompt": "driver adjusting the radio while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.25497347116470337,
+    "image_path": "outputs/000016.png",
+    "pose_path": "outputs/000016_pose.png",
+    "seed": 1716888461
+  },
+  {
+    "id": "000017",
+    "prompt": "driver adjusting the radio while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.26306596398353577,
+    "image_path": "outputs/000017.png",
+    "pose_path": "outputs/000017_pose.png",
+    "seed": 2046312939
+  },
+  {
+    "id": "000018",
+    "prompt": "driver adjusting the radio while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.26319220662117004,
+    "image_path": "outputs/000018.png",
+    "pose_path": "outputs/000018_pose.png",
+    "seed": 2106950223
+  },
+  {
+    "id": "000019",
+    "prompt": "driver adjusting the radio while seated in a car, in-cabin camera, realistic",
+    "clip_cosine_similarity": 0.2598888874053955,
+    "image_path": "outputs/000019.png",
+    "pose_path": "outputs/000019_pose.png",
+    "seed": 915526887
+  }
+]
